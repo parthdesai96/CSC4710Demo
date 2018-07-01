@@ -91,7 +91,7 @@ public class initDB extends HttpServlet {
 		     //String sqlstmt4 ="CREATE table pcmember(email VARCHAR(50),name VARCHAR(20),primary key (email))";
 		     //statement.executeUpdate(sqlstmt4);
 		      
-		     String sqlstmt5 ="create table review(reportid integer,sdate DATE,comment VARCHAR(250),recommendation CHAR(1),paperid integer,email VARCHAR(100),unique(paperid, email),foreign key (paperid) references paper(paperid),foreign key (email) references pcmember(email))";
+		     String sqlstmt5 ="create table review(reportid integer AUTO_INCREMENT,sdate DATE,comment VARCHAR(250),recommendation CHAR(1),paperid integer,email VARCHAR(100),unique(paperid, email),foreign key (paperid) references paper(paperid),foreign key (email) references pcmember(email),primary key(reportid))";
 		     statement.executeUpdate(sqlstmt5);
 		      //paper
 		     preparedStatement = connect.prepareStatement("insert into  paper(title, abstract,pdf) values (?, ?, ?)");
@@ -192,6 +192,26 @@ public class initDB extends HttpServlet {
 		     preparedStatement.executeUpdate();
 		     //writeT
 		     
+		     preparedStatement = connect.prepareStatement("insert into  writeT(paperid, email,ordercont) values (?, ?, ?)");
+		     preparedStatement.setString(1, "1");
+		     preparedStatement.setString(2, "email1");
+		     preparedStatement.setString(3, "2121");
+		     preparedStatement.executeUpdate();
+		     preparedStatement = connect.prepareStatement("insert into  writeT(paperid, email,ordercont) values (?, ?, ?)");
+		     preparedStatement.setString(1, "2");
+		     preparedStatement.setString(2, "email2");
+		     preparedStatement.setString(3, "2121");
+		     preparedStatement.executeUpdate();
+		     preparedStatement = connect.prepareStatement("insert into  writeT(paperid, email,ordercont) values (?, ?, ?)");
+		     preparedStatement.setString(1, "3");
+		     preparedStatement.setString(2, "email3");
+		     preparedStatement.setString(3, "2121");
+		     preparedStatement.executeUpdate();
+		     preparedStatement = connect.prepareStatement("insert into  writeT(paperid, email,ordercont) values (?, ?, ?)");
+		     preparedStatement.setString(1, "4");
+		     preparedStatement.setString(2, "email4");
+		     preparedStatement.setString(3, "2121");
+		     preparedStatement.executeUpdate();
 		     
 		     //
 		    
@@ -230,8 +250,35 @@ public class initDB extends HttpServlet {
 		     preparedStatement.executeUpdate();
 		     //review
 		    
+		     preparedStatement = connect.prepareStatement("insert into  review( sdate,comment,recommendation,paperid,email) values (?,?,?, ?, ?)");
+		     preparedStatement.setString(1, "2018-04-06");
+		     preparedStatement.setString(2, "test comment");
+		     preparedStatement.setString(3, "Y");
+		     preparedStatement.setString(4, "1");
+		     preparedStatement.setString(5, "email1");
+		     preparedStatement.executeUpdate();
 		     
-		      
+		     preparedStatement = connect.prepareStatement("insert into  review( sdate,comment,recommendation,paperid,email) values (?,?,?, ?, ?)");
+		     preparedStatement.setString(1, "2018-06-06");
+		     preparedStatement.setString(2, "test comment");
+		     preparedStatement.setString(3, "N");
+		     preparedStatement.setString(4, "1");
+		     preparedStatement.setString(5, "email2");
+		     preparedStatement.executeUpdate();
+		     preparedStatement = connect.prepareStatement("insert into  review( sdate,comment,recommendation,paperid,email) values (?,?,?, ?, ?)");
+		     preparedStatement.setString(1, "2018-07-06");
+		     preparedStatement.setString(2, "test comment");
+		     preparedStatement.setString(3, "Y");
+		     preparedStatement.setString(4, "1");
+		     preparedStatement.setString(5, "email3");
+		     preparedStatement.executeUpdate();preparedStatement = connect.prepareStatement("insert into  review( sdate,comment,recommendation,paperid,email) values (?,?,?, ?, ?)");
+		     preparedStatement.setString(1, "2018-08-06");
+		     preparedStatement.setString(2, "test comment");
+		     preparedStatement.setString(3, "N");
+		     preparedStatement.setString(4, "2");
+		     preparedStatement.setString(5, "email4");
+		     preparedStatement.executeUpdate();
+		     
 		     
 		      
 		      

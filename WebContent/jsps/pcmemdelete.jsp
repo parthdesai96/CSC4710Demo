@@ -14,7 +14,8 @@
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<meta http-equiv="content-type" content="text/html;char
+	set=utf-8">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
@@ -22,10 +23,27 @@
   </head>
   
   <body>
-    <h1>CSC 4710 Conference Management System</h1>
-    <br>
-    <a href="<c:url value='/findAll'/>" target="body">Please list all the user in the table</a>&nbsp;&nbsp;
- 
     
+    <c:choose>
+		<c:when test="${empty sessionScope.session_user }">
+				<h1>PCMember Delete Page</h1>	
+		</c:when>
+		<c:otherwise>
+
+		
+		<form action="<c:url value='/pcmemdelete'/>" method="post">
+		<label>Email: </label>
+		<input type="text" name="email0" value=""/>
+		<br>
+		<br>
+		<input type="submit" name="delete" value="Delete"/>
+		</form>
+		
+		<br>
+		<a href ="/CSC4710Demo/jsps/body.jsp"><button type = "submit">Return to home</button></a>
+		<br>
+		
+		</c:otherwise>
+	</c:choose>
   </body>
 </html>

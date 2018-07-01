@@ -5,45 +5,51 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>top</title>
+    <base href="">
+    
+    <title>body</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<meta http-equiv="content-type" content="text/html;char
+	set=utf-8">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<style type="text/css">
-	body {
-		background: #666666; 
-	}
-	a {
-		text-transform:none;
-		text-decoration:none;
-	} 
-	a:hover {
-		text-decoration:underline;
-	}
-</style>
+
   </head>
   
   <body>
-<h1 style="text-align: center;">CSC4710 Conference Management System</h1>
-<div style="font-size: 10pt;">
-	<c:choose>
+    
+    <c:choose>
 		<c:when test="${empty sessionScope.session_user }">
-			<a href="<c:url value='/jsps/user/login.jsp'/>" target="_parent">Login</a> |&nbsp; 
-			<a href="<c:url value='/jsps/user/regist.jsp'/>" target="_parent">Register</a>		
+				<h1>PC Member Insert Page</h1>
 		</c:when>
 		<c:otherwise>
-			Hello：${sessionScope.session_user.username };
-			<a href="<c:url value='/jsps/item.jsp'/>" target="body">Query Result</a>&nbsp;&nbsp;
+
+		
+		<form action="<c:url value='/insertpaper'/>" method="post">
+		<label>Id: </label>
+		<input type="text" name="title0" value=""/>
+		<label>Title:</label>
+		<input type="text" name="abstract0" value=""/>
+		<label>Abstract:</label>
+		<input type="text" name="pdf0" value=""/>
+		<label>Pdf:</label>
+		<input type="text" name="pdf0" value=""/>
+		<br>
+		<br>
+		<input type="submit" name="update" value="Update"/>
+		</form>
+		
+		<br>
+		<a href ="/CSC4710Demo/jsps/body.jsp"><button type = "submit">Return to home</button></a>
+		<br>
+		
 		</c:otherwise>
 	</c:choose>
-
-</div>
   </body>
 </html>
