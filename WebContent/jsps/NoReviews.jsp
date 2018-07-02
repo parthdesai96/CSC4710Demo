@@ -5,45 +5,61 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <title>top</title>
+    <base href="">
+    
+    <title>LU1</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<meta http-equiv="content-type" content="text/html;char
+	set=utf-8">
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<style type="text/css">
-	body {
-		background: #666666; 
-	}
-	a {
-		text-transform:none;
-		text-decoration:none;
-	} 
-	a:hover {
-		text-decoration:underline;
-	}
+<style>
+table, th, td {
+    border: 1px solid black;
+}
 </style>
   </head>
   
   <body>
-<h1 style="text-align: center;">CSC4710 Conference Management System</h1>
-<div style="font-size: 10pt;">
-	<c:choose>
+    
+    <c:choose>
 		<c:when test="${empty sessionScope.session_user }">
-			<a href="<c:url value='/jsps/user/login.jsp'/>" target="_parent">Login</a> |&nbsp; 
-			<a href="<c:url value='/jsps/user/regist.jsp'/>" target="_parent">Register</a>		
+				<h1>LU1 Search Page</h1>
 		</c:when>
 		<c:otherwise>
-			Hello：${sessionScope.session_user.username };
-			<a href="<c:url value='/jsps/item.jsp'/>" target="body">Query Result</a>&nbsp;&nbsp;
+
+		
+		<table style="width:50%">
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th> 
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Paper1</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Paper2</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
+
+
+<br>
+		<a href ="/CSC4710Demo/jsps/body.jsp"><button type = "submit">Return to home</button></a>
+		<br>
+		
+		
 		</c:otherwise>
 	</c:choose>
-
-</div>
   </body>
 </html>
