@@ -34,20 +34,72 @@
 		<form action="<c:url value='/updatereview'/>" method="post">
 		<label>Reportid: </label>
 		<input type="text" name="reportid0" value=""/>
+		<br>
 		<label>Date:</label>
 		<input type="text" name="date0" value=""/>
+		<br>
 		<label>Comments:</label>
 		<input type="text" name="comments0" value=""/>
+		<br>
 		<label>Recommendation:</label>
 		<input type="text" name="rec0" value=""/>
+		<br>
 		<label>Paperid:</label>
 		<input type="text" name="paperid0" value=""/>
+		<br>
 		<label>Email:</label>
 		<input type="text" name="email0" value=""/>
 		<br>
 		<br>
 		<input type="submit" name="Update" value="Update"/>
 		</form>
+		
+		<%@ page import="java.sql.*" %>		
+		<p>Update Papers: </p>
+
+<table border="2">
+<tr>
+<td>Report ID</td>
+<td>Date</td>
+<td>Comment</td>
+<td>Recommendation</td>
+<td>Paper Id</td>
+<td>Email</td>
+</tr>
+<%
+		try {	
+		    String url = "jdbc:mysql://localhost:3306/sampledb";
+		    Connection conn = DriverManager.getConnection(url,"root","parth55");
+		    Statement stmt = conn.createStatement();
+		    ResultSet rs; 
+		    rs = stmt.executeQuery("SELECT * FROM review"); 
+		    
+		
+		    while ( rs.next() )
+		    { %>
+			<form action="/updatereview" method="post">
+			<tr><td><input type="text" name="email" readonly="readonly" value="<%=rs.getString("reportid") %>"></td>
+			<td><input type="text" name="name" readonly="readonly" value="<%=rs.getString("sdate") %>"></td>
+			<td><input type="text" name="name" readonly="readonly" value="<%=rs.getString("comment") %>"></td>
+			<td><input type="text" name="name" readonly="readonly" value="<%=rs.getString("recommendation") %>"></td>
+			<td><input type="text" name="name" readonly="readonly" value="<%=rs.getString("paperid") %>"></td>
+			<td><input type="text" name="name" readonly="readonly" value="<%=rs.getString("email") %>"></td>
+			</tr>
+			</form>
+			 <%
+			}
+
+			rs.close();
+			stmt.close();
+			conn.close();
+			}
+			catch(Exception e)
+			{
+			e.printStackTrace();
+			}
+			%>
+
+				</table>
 		
 		<br>
 		<a href ="/CSC4710Demo/jsps/body.jsp"><button type = "submit">Return to home</button></a>

@@ -17,7 +17,7 @@
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-	<!--<style type="text/css">
+	<style type="text/css">
 		*{
 			font-size:10pt;
 		}
@@ -37,7 +37,7 @@
 			width: 100%;
 			height: 100%;
 		}
-	</style>-->
+	</style>
   </head>
   
   <body>
