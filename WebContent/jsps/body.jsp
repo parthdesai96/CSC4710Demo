@@ -60,14 +60,7 @@
 		
 		<a href ="/CSC4710Demo/jsps/pcmemupdate.jsp"><button type = "submit">Update a pc member</button></a>
 	
-		<a href ="/CSC4710Demo/jsps/pcmemdelete.jsp"><button type = "submit">Delete a pc member</button></a>
-		<br>
-		<a href ="/CSC4710Demo/jsps/Insertreview.jsp"><button type = "submit">Insert a pc review</button></a>
-		
-		<a href ="/CSC4710Demo/jsps/UpdateReview.jsp"><button type = "submit">Update a pc review</button></a>
-	
-		<a href ="/CSC4710Demo/jsps/DeleteReview.jsp"><button type = "submit">Delete a pc review</button></a>
-		<br>
+
 		<a href ="/CSC4710Demo/jsps/Insertpaper.jsp"><button type = "submit">Insert a paper</button></a>
 		
 		<a href ="/CSC4710Demo/jsps/Updatepaper.jsp"><button type = "submit">Update a paper</button></a>
@@ -88,10 +81,6 @@
 		<br>
 		<a href ="/CSC4710Demo/jsps/Allaccepted.jsp"><button type = "submit">View all accepted papers</button></a>
 		<br>
-		
-		
-		
-		
 		</c:otherwise>
 	</c:choose>
   </body>

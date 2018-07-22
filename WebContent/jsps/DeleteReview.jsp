@@ -31,7 +31,7 @@
 		<c:otherwise>
 
 		
-		<form action="<c:url value='/deletereport'/>" method="post">
+		<form action="<c:url value='/deletereview'/>" method="post">
 		<label>ReportID: </label>
 		<input type="text" name="reportid0" value=""/>
 		<br>
