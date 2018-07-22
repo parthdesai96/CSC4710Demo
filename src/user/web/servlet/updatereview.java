@@ -58,7 +58,7 @@ public class updatereview extends HttpServlet {
 		     String email = request.getParameter("email0");
 		    
 		    	 
-		     preparedStatement = connect.prepareStatement("update review set sdate = '"+ sdate +"',comment = '"+comment+"'recommendation ='"+recommendation+"', paperid = '" +paperid+"',email0 = '" + email +"' where reportid = '"+ reportid +"';");
+		     preparedStatement = connect.prepareStatement("update review set sdate ="+sdate+",comment = '"+comment+"',recommendation ='"+recommendation+"', paperid ="+paperid+",email='"+email+"' where reportid = '"+reportid+"';");
 				  //preparedStatement.setString(1,newname);
 			preparedStatement.executeUpdate();
 		     
@@ -71,7 +71,7 @@ public class updatereview extends HttpServlet {
 		    } finally {
 		      close();
 		    }
-			request.getRequestDispatcher("/jsps/Updatepaper.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsps/UpdateReview.jsp").forward(request, response);
 
 
 		  }

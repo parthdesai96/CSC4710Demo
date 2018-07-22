@@ -74,6 +74,37 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>updatereview</display-name>
+    <servlet-name>updatereview</servlet-name>
+    <servlet-class>user.web.servlet.updatereview</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updatereview</servlet-name>
+    <url-pattern>/updatereview</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>insertreview</display-name>
+    <servlet-name>insertreview</servlet-name>
+    <servlet-class>user.web.servlet.insertreview</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>insertreview</servlet-name>
+    <url-pattern>/insertreview</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>deletereview</display-name>
+    <servlet-name>deletereview</servlet-name>
+    <servlet-class>user.web.servlet.deletereview</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deletereview</servlet-name>
+    <url-pattern>/deletereview</url-pattern>
+  </servlet-mapping>
+  
+  <servlet>
+    <description></description>
     <display-name>deletepcmem</display-name>
     <servlet-name>deletepcmem</servlet-name>
     <servlet-class>user.web.servlet.deletepcmem</servlet-class>
