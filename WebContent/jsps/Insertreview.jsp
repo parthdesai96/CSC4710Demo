@@ -31,7 +31,7 @@
 		<c:otherwise>
 
 		
-		<form action="<c:url value='/insertreport'/>" method="post">
+		<form action="<c:url value='/insertreview'/>" method="post">
 		<label>Date: </label>
 		<input type="text" name="date0" value=""/>
 		<label>Comment:</label>

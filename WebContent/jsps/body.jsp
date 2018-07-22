@@ -61,7 +61,6 @@
 		<a href ="/CSC4710Demo/jsps/pcmemupdate.jsp"><button type = "submit">Update a pc member</button></a>
 		
 		<a href ="/CSC4710Demo/jsps/pcmemdelete.jsp"><button type = "submit">Delete a pc member</button></a>
-		
 		<br>
 		<a href ="/CSC4710Demo/jsps/Insertpaper.jsp"><button type = "submit">Insert a paper</button></a>
 		
@@ -89,10 +88,6 @@
 		<br>
 		<a href ="/CSC4710Demo/jsps/Allaccepted.jsp"><button type = "submit">View all accepted papers</button></a>
 		<br>
-		
-		
-		
-		
 		</c:otherwise>
 	</c:choose>
   </body>
