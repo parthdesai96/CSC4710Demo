@@ -1,3 +1,4 @@
+
 package user.web.servlet;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ import java.util.Date;
  * Servlet implementation class findAll
  */
 
-public class updatereview extends HttpServlet {
+public class updatepaper extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private static Connection connect = null;
 	private static Statement statement = null;
@@ -50,15 +51,13 @@ public class updatereview extends HttpServlet {
 		      // Setup the connection with the DB
 		      connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/sampledb?"+ "user=root&password=parth55");
 
-		     String reportid = request.getParameter("reportid0");
-		     String sdate = request.getParameter("date0");
-		     String comment = request.getParameter("comment0");
-		     String recommendation = request.getParameter("rec0");
-		     String paperid = request.getParameter("paperid0");
-		     String email = request.getParameter("email0");
+		     String paperidx = request.getParameter("paperidn");
+		     String titlex = request.getParameter("titlen");
+		     String abstractx = request.getParameter("abstractn");
+		     String pdfx = request.getParameter("pdfn");
 		    
 		    	 
-		     preparedStatement = connect.prepareStatement("update review set sdate ="+sdate+",comment = '"+comment+"',recommendation ='"+recommendation+"', paperid ="+paperid+",email='"+email+"' where reportid = '"+reportid+"';");
+		     preparedStatement = connect.prepareStatement("update paper set title = '"+ titlex +"', abstract = '" +abstractx+"',pdf = '" + pdfx +"' where paperid = '"+ paperidx +"';");
 				  //preparedStatement.setString(1,newname);
 			preparedStatement.executeUpdate();
 		     
@@ -71,7 +70,7 @@ public class updatereview extends HttpServlet {
 		    } finally {
 		      close();
 		    }
-			request.getRequestDispatcher("/jsps/UpdateReview.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsps/Updatepaper.jsp").forward(request, response);
 
 
 		  }
@@ -98,3 +97,6 @@ public class updatereview extends HttpServlet {
 		
 		
 	}
+
+
+

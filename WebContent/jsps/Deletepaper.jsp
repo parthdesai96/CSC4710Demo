@@ -26,22 +26,72 @@
     
     <c:choose>
 		<c:when test="${empty sessionScope.session_user }">
-				<h1>PC Member Insert Page</h1>
+				<h1>PC Member Delete Page</h1>	
 		</c:when>
 		<c:otherwise>
 
 		
-		<form action="<c:url value='/insertpaper'/>" method="post">
-		<label>PaperID: </label>
-		<input type="text" name="paperid0" value=""/>
+		
+		
+		<form action="<c:url value='/deletepaper'/>" method="post">
+		<label>Enter the paperid of the row to be delete</label>
+		<br>
+		<label>Paper ID: </label>
+		<input type="text" name="paperid" value=""/>
 		<br>
 		<br>
-		<input type="submit" name="delete" value="Delete"/>
+		<input type="submit" name="Delete" value="Delete"/>
 		</form>
 		
-		<br>
+			<center>
+
+
+		<%@ page import="java.sql.*" %>		
+		<p>Delete Papers: </p>
+
+<table border="2">
+<tr>
+<td>Paper Id</td>
+<td>Title</td>
+<td>Abstract</td>
+<td>PDF</td>
+</tr>
+<%
+		try {
+		    String url = "jdbc:mysql://localhost:3306/sampledb";
+		    Connection conn = DriverManager.getConnection(url,"root","parth55");
+		    Statement stmt = conn.createStatement();
+		    ResultSet rs; 
+		    rs = stmt.executeQuery("SELECT * FROM paper"); 
+		    
+		
+		    while ( rs.next() )
+		    { %>
+			<form action="/deletepaper" method="post">
+			<tr><td><input type="text" name="email" readonly="readonly" value="<%=rs.getString("paperid") %>"></td>
+			<td><input type="text" name="name" readonly="readonly" value="<%=rs.getString("title") %>"></td>
+			<td><input type="text" name="email" readonly="readonly" value="<%=rs.getString("abstract") %>"></td>
+			<td><input type="text" name="name" readonly="readonly" value="<%=rs.getString("pdf") %>"></td>
+			</tr>
+			</form>
+			 <%
+			}
+
+			rs.close();
+			stmt.close();
+			conn.close();
+			}
+			catch(Exception e)
+			{
+			e.printStackTrace();
+			}
+			%>
+
+				</table>
+				<br>
 		<a href ="/CSC4710Demo/jsps/body.jsp"><button type = "submit">Return to home</button></a>
 		<br>
+			</center>			
 		</c:otherwise>
 	</c:choose>
   </body>

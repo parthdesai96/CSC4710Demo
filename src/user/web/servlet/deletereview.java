@@ -66,7 +66,7 @@ public class deletereview extends HttpServlet {
 		    } finally {
 		      close();
 		    }
-			request.getRequestDispatcher("/jsps/Deletepaper.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsps/DeleteReview.jsp").forward(request, response);
 
 
 		  }

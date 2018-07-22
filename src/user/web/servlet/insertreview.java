@@ -48,7 +48,7 @@ public class insertreview extends HttpServlet {
 
 		      Class.forName("com.mysql.jdbc.Driver");
 		      // Setup the connection with the DB
-		      connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/sampledb?"+ "user=root&password=WayneState2017");
+		      connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/sampledb?"+ "user=root&password=parth55");
 
 		      String ir1 = request.getParameter("date0");
 		      String ir2 = request.getParameter("comment0");
@@ -72,7 +72,7 @@ public class insertreview extends HttpServlet {
 		    } finally {
 		      close();
 		    }
-			request.getRequestDispatcher("/jsps/Insertpaper.jsp").forward(request, response);
+			request.getRequestDispatcher("/jsps/Insertreview.jsp").forward(request, response);
 
 
 		  }
