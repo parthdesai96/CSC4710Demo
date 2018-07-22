@@ -5,9 +5,11 @@ Final Project: Conference Management Software System
 
 Team: Parth Desai & Mahfuj Rahman
 
-The URL to our Github is: xxxxxxxxxxxxxxxxxxxxxxxxx. Parth’s Github id is parthdesai96 and mahfuj's Github id is mahfujrahman. We both contributed our effort toward this project. For instance, Parth created the insert, delete and update files for paper and pc members along with the other files. Mahfuj worked on creating the insert, delete and update file for review reports along with the ER Diagram. We followed the requirements/rubric for Front End & Back End as we were implementing elements throughout the final project.
+The URL to our Github is: https://github.com/parthdesai96/CSC4710Demo. Parth’s Github id is parthdesai96 and mahfuj's Github id is mahfujrahman. We both contributed our effort toward this project. For instance, Parth created the insert, delete and update files for paper and pc members along with the other files. Mahfuj worked on creating the insert, delete and update file for review reports along with the ER Diagram. We followed the requirements/rubric for Front End & Back End as we were implementing elements throughout the final project.
 
-The URL to the video of our Final Project is: xxxxxxxxxxxxxxxxxxx
+The video for part 1 is :https://youtu.be/ooFe53w8Nc0
+
+The video for part 2 is :https://youtu.be/lNZJQYIQmco
 
 To create the .war file in eclipse.
 1.	Save your project.
