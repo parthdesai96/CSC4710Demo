@@ -52,15 +52,15 @@ public class updatereview extends HttpServlet {
 
 		     String reportid = request.getParameter("reportid0");
 		     String sdate = request.getParameter("date0");
-		     String comment = request.getParameter("comment0");
+		     String comment = request.getParameter("comments0");
 		     String recommendation = request.getParameter("rec0");
 		     String paperid = request.getParameter("paperid0");
 		     String email = request.getParameter("email0");
 		    
 		    	 
-		     preparedStatement = connect.prepareStatement("update review set sdate ="+sdate+",comment = '"+comment+"',recommendation ='"+recommendation+"', paperid ="+paperid+",email='"+email+"' where reportid = '"+reportid+"';");
+		     preparedStatement = connect.prepareStatement("update review set sdate ='"+sdate+"',comment = '"+comment+"',recommendation ='"+recommendation+"', paperid ='"+paperid+"',email='"+email+"' where reportid = '"+reportid+"';");
 				  //preparedStatement.setString(1,newname);
-			preparedStatement.executeUpdate();
+		     preparedStatement.executeUpdate();
 		     
 		      
 
