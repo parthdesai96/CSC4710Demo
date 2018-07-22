@@ -13,6 +13,8 @@ delete and update file for review reports and created the ER Diagram.
 
 The video for part 1 is :https://youtu.be/ooFe53w8Nc0
 
+The video for part 2 is :https://youtu.be/lNZJQYIQmco
+
 
 To create the .war file in eclipse.
 
