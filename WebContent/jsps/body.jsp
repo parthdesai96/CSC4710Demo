@@ -59,20 +59,13 @@
 		<a href ="/CSC4710Demo/jsps/pcmeminsert.jsp"><button type = "submit">Insert a pc member</button></a>
 		
 		<a href ="/CSC4710Demo/jsps/pcmemupdate.jsp"><button type = "submit">Update a pc member</button></a>
-		
-		<a href ="/CSC4710Demo/jsps/pcmemdelete.jsp"><button type = "submit">Delete a pc member</button></a>
-		<br>
+	
+
 		<a href ="/CSC4710Demo/jsps/Insertpaper.jsp"><button type = "submit">Insert a paper</button></a>
 		
 		<a href ="/CSC4710Demo/jsps/Updatepaper.jsp"><button type = "submit">Update a paper</button></a>
 		
 		<a href ="/CSC4710Demo/jsps/Deletepaper.jsp"><button type = "submit">Delete a paper</button></a>
-		<br>
-		<a href ="/CSC4710Demo/jsps/Insertreview.jsp"><button type = "submit">Insert a Review</button></a>
-		
-		<a href ="/CSC4710Demo/jsps/UpdateReview.jsp"><button type = "submit">Update a Review</button></a>
-		
-		<a href ="/CSC4710Demo/jsps/DeleteReview.jsp"><button type = "submit">Delete a Review</button></a>
 		<br>
 		<a href ="/CSC4710Demo/jsps/Lu1.jsp"><button type = "submit">Search LU1</button></a>
 		<br>
@@ -82,7 +75,7 @@
 		<br>
 		<a href ="/CSC4710Demo/jsps/MostReviews.jsp"><button type = "submit">Most Reviews</button></a>
 		<br>
-		<a href ="/CSC4710Demo/jsps/NoReviews.jsp"><button type = "submit">No Reviews</button></a>
+		<a href ="/CSC4710Demo/jsps/NoReviews.jsp"><button type = "submit">No Papers</button></a>
 		<br>
 		<a href ="/CSC4710Demo/jsps/MattJohnRejects.jsp"><button type = "submit">Matt John Rejects</button></a>
 		<br>
