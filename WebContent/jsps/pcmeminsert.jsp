@@ -33,9 +33,9 @@
 		
 		<form action="<c:url value='/insertpcmem'/>" method="post">
 		<label>Email: </label>
-		<input type="text" name="email0" value=""/>
+		<input type="text" name="emailIPC" value=""/>
 		<label>Member Name:</label>
-		<input type="text" name="assign0" value=""/>
+		<input type="text" name="assignIPC" value=""/>
 		<br>
 		<br>
 		<input type="submit" name="insert" value="Insert"/>

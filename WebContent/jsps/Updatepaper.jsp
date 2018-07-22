@@ -26,29 +26,76 @@
     
     <c:choose>
 		<c:when test="${empty sessionScope.session_user }">
-				<h1>PC Member Insert Page</h1>
+				<h1>PC Member Update Page</h1>	
 		</c:when>
 		<c:otherwise>
 
 		
-		<form action="<c:url value='/insertpaper'/>" method="post">
-		<label>Id: </label>
-		<input type="text" name="title0" value=""/>
+		
+		
+		<form action="<c:url value='/updatepaper'/>" method="post">
+		<label>Paper ID: </label>
+		<input type="text" name="paperidn" value=""/>
 		<label>Title:</label>
-		<input type="text" name="abstract0" value=""/>
-		<label>Abstract:</label>
-		<input type="text" name="pdf0" value=""/>
-		<label>Pdf:</label>
-		<input type="text" name="pdf0" value=""/>
+		<input type="text" name="titlen" value=""/>
+		<label>Abstract: </label>
+		<input type="text" name="abstractn" value=""/>
+		<label>PDF:</label>
+		<input type="text" name="pdfn" value=""/>
 		<br>
 		<br>
-		<input type="submit" name="update" value="Update"/>
+		<input type="submit" name="Update" value="Update"/>
 		</form>
 		
-		<br>
+			<center>
+
+
+		<%@ page import="java.sql.*" %>		
+		<p>Update Papers: </p>
+
+<table border="2">
+<tr>
+<td>Paper ID</td>
+<td>Title</td>
+<td>Abstract</td>
+<td>PDF</td>
+</tr>
+<%
+		try {	
+		    String url = "jdbc:mysql://localhost:3306/sampledb";
+		    Connection conn = DriverManager.getConnection(url,"root","parth55");
+		    Statement stmt = conn.createStatement();
+		    ResultSet rs; 
+		    rs = stmt.executeQuery("SELECT * FROM paper"); 
+		    
+		
+		    while ( rs.next() )
+		    { %>
+			<form action="/updatepcmem" method="post">
+			<tr><td><input type="text" name="email" readonly="readonly" value="<%=rs.getString("paperid") %>"></td>
+			<td><input type="text" name="name" readonly="readonly" value="<%=rs.getString("title") %>"></td>
+			<td><input type="text" name="name" readonly="readonly" value="<%=rs.getString("abstract") %>"></td>
+			<td><input type="text" name="name" readonly="readonly" value="<%=rs.getString("pdf") %>"></td>
+			</tr>
+			</form>
+			 <%
+			}
+
+			rs.close();
+			stmt.close();
+			conn.close();
+			}
+			catch(Exception e)
+			{
+			e.printStackTrace();
+			}
+			%>
+
+				</table>
+				<br>
 		<a href ="/CSC4710Demo/jsps/body.jsp"><button type = "submit">Return to home</button></a>
 		<br>
-		
+			</center>			
 		</c:otherwise>
 	</c:choose>
   </body>

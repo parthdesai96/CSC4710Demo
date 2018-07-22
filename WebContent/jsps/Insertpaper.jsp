@@ -26,22 +26,23 @@
     
     <c:choose>
 		<c:when test="${empty sessionScope.session_user }">
-				<h1>PC Member Insert Page</h1>
+				<h1>Paper Insert Page</h1>
 		</c:when>
 		<c:otherwise>
 
 		
 		<form action="<c:url value='/insertpaper'/>" method="post">
 		<label>Title: </label>
-		<input type="text" name="title0" value=""/>
+		<input type="text" name="titleip" value=""/>
 		<label>Abstract:</label>
-		<input type="text" name="abstract0" value=""/>
-		<label>Pdf:</label>
-		<input type="text" name="pdf0" value=""/>
+		<input type="text" name="abstractip" value=""/>
+		<label>PDF:</label>
+		<input type="text" name="pdfip" value=""/>
 		<br>
 		<br>
 		<input type="submit" name="insert" value="Insert"/>
 		</form>
+		
 		
 		<br>
 		<a href ="/CSC4710Demo/jsps/body.jsp"><button type = "submit">Return to home</button></a>

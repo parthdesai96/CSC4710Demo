@@ -5,9 +5,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
   <head>
-    <base href="">
+   
     
-    <title>LU2</title>
+    <title>body</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -16,60 +16,73 @@
 	<meta http-equiv="description" content="This is my page">
 	<meta http-equiv="content-type" content="text/html;char
 	set=utf-8">
-	<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-	-->
-<style>
-table, th, td {
-    border: 1px solid black;
-}
-</style>
+	
+	<link rel = "stylesheet" href="bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script type="text/javascript" src ="bootstrap.min.js"></script>
+	
+
   </head>
   
   <body>
     
     <c:choose>
 		<c:when test="${empty sessionScope.session_user }">
-				<h1>LU2 Search Page</h1>
-		</c:when> 
+				<h1>Lu First Author Page</h1>	
+		</c:when>
 		<c:otherwise>
-
 		
-		<form action="<c:url value='/LU2'/>" method="post">
-		<label>Search: </label>
-		<input type="text" name="title0" value=""/>
-		<br>
-		<br>
-		<input type="submit" name="search" value="Search"/>
-		</form>
-		
-		<table style="width:50%">
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Age</th>
-  </tr>
-  <tr>
-    <td>Paper1</td>
-    <td>Smith</td>
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Paper2</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
-  <tr>
-    <td>Paper3</td>
-    <td>Doe</td>
-    <td>80</td>
-  </tr>
-</table>
+			<center>
 
-<br>
+
+		<%@ page import="java.sql.*" %>		
+		<p>Update Papers: </p>
+
+<table class = "w3-table w3-striped w3-white" >
+<tr>
+<td>Paper ID</td>
+<td>Title</td>
+<td>Abstract</td>
+<td>PDF</td>
+</tr>
+<%
+		try {	
+		    String url = "jdbc:mysql://localhost:3306/sampledb";
+		    Connection conn = DriverManager.getConnection(url,"root","parth55");
+		    Statement stmt = conn.createStatement();
+		    ResultSet rs; 
+		    rs = stmt.executeQuery("SELECT * FROM paper WHERE paperid IN (SELECT paperid FROM writeT WHERE email = (SELECT email FROM author WHERE name = 'Lu') AND ordercont=1)"); 
+		    
+		
+		    while ( rs.next() )
+		    { %>
+			
+			<tr><td><input type="text" name="email" readonly="readonly" value="<%=rs.getString("paperid") %>"></td>
+			<td><input type="text" name="name" readonly="readonly" value="<%=rs.getString("title") %>"></td>
+			<td><input type="text" name="name" readonly="readonly" value="<%=rs.getString("abstract") %>"></td>
+			<td><input type="text" name="name" readonly="readonly" value="<%=rs.getString("pdf") %>"></td>
+			</tr>
+			
+			 <%
+			}
+
+			rs.close();
+			stmt.close();
+			conn.close();
+			}
+			catch(Exception e)
+			{
+			e.printStackTrace();
+			}
+			%>
+
+				</table>
+				<br>
 		<a href ="/CSC4710Demo/jsps/body.jsp"><button type = "submit">Return to home</button></a>
 		<br>
-		
+			</center>			
 		</c:otherwise>
 	</c:choose>
   </body>
