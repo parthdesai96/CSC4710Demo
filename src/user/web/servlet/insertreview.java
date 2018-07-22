@@ -53,7 +53,7 @@ public class insertreview extends HttpServlet {
 		      String ir1 = request.getParameter("date0");
 		      String ir2 = request.getParameter("comment0");
 		      String ir3 = request.getParameter("rec0");
-		      String ir4 = request.getParameter("paperdid0");
+		      String ir4 = request.getParameter("paperid0");
 		      String ir5 = request.getParameter("email0");
 		      
 		      preparedStatement = connect.prepareStatement("insert into  review(sdate,comment,recommendation,paperid,email) values (?,?,?,?,?)");
