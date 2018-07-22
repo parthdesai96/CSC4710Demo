@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
   <display-name>CSC4710 Demo</display-name>
   <servlet>
@@ -51,6 +50,66 @@
   <servlet-mapping>
     <servlet-name>assign</servlet-name>
     <url-pattern>/assign</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>insertpcmem</display-name>
+    <servlet-name>insertpcmem</servlet-name>
+    <servlet-class>user.web.servlet.insertpcmem</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>insertpcmem</servlet-name>
+    <url-pattern>/insertpcmem</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>updatepcmem</display-name>
+    <servlet-name>updatepcmem</servlet-name>
+    <servlet-class>user.web.servlet.updatepcmem</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updatepcmem</servlet-name>
+    <url-pattern>/updatepcmem</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>deletepcmem</display-name>
+    <servlet-name>deletepcmem</servlet-name>
+    <servlet-class>user.web.servlet.deletepcmem</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deletepcmem</servlet-name>
+    <url-pattern>/deletepcmem</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>insertpaper</display-name>
+    <servlet-name>insertpaper</servlet-name>
+    <servlet-class>user.web.servlet.insertpaper</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>insertpaper</servlet-name>
+    <url-pattern>/insertpaper</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>updatepaper</display-name>
+    <servlet-name>updatepaper</servlet-name>
+    <servlet-class>user.web.servlet.updatepaper</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>updatepaper</servlet-name>
+    <url-pattern>/updatepaper</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>deletepaper</display-name>
+    <servlet-name>deletepaper</servlet-name>
+    <servlet-class>user.web.servlet.deletepaper</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deletepaper</servlet-name>
+    <url-pattern>/deletepaper</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

@@ -7,7 +7,7 @@
   <head>
     <base href="">
     
-    <title>LU1</title>
+    <title>body</title>
     
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
@@ -19,44 +19,62 @@
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
-<style>
-table, th, td {
-    border: 1px solid black;
-}
-</style>
+
   </head>
   
   <body>
     
     <c:choose>
 		<c:when test="${empty sessionScope.session_user }">
-				<h1>LU1 Search Page</h1>
+				<h1>Lu First Author Page</h1>	
 		</c:when>
 		<c:otherwise>
+		
+			<center>
 
+
+		<%@ page import="java.sql.*" %>		
+		<p>Most Reviews Page: </p>
+
+<table border="2">
+<tr>
+<td>Name</td>
+<td>Email</td>
+</tr>
+<%
+		try {	
+		    String url = "jdbc:mysql://localhost:3306/sampledb";
+		    Connection conn = DriverManager.getConnection(url,"root","parth55");
+		    Statement stmt = conn.createStatement();
+		    ResultSet rs; 
+		    rs = stmt.executeQuery("SELECT name, email FROM pcmember WHERE email IN (SELECT email FROM review r GROUP BY r.email HAVING COUNT(*) = (SELECT MAX(num) FROM (SELECT email, COUNT(*) as num FROM review r2 GROUP BY r2.email) as r3))"); 
+		    
 		
-		<table style="width:50%">
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Age</th>
-  </tr>
-  <tr>
-    <td>Paper1</td>
-    <td>Smith</td>
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Paper2</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
-</table>
-		
-		<br>
+		    while ( rs.next() )
+		    { %>
+			
+			<tr><td><input type="text" name="email" readonly="readonly" value="<%=rs.getString("name") %>"></td>
+			<td><input type="text" name="name" readonly="readonly" value="<%=rs.getString("email") %>"></td>
+			</tr>
+			
+			 <%
+			}
+
+			rs.close();
+			stmt.close();
+			conn.close();
+			}
+			catch(Exception e)
+			{
+			e.printStackTrace();
+			}
+			%>
+
+				</table>
+				<br>
 		<a href ="/CSC4710Demo/jsps/body.jsp"><button type = "submit">Return to home</button></a>
 		<br>
-		
+			</center>			
 		</c:otherwise>
 	</c:choose>
   </body>

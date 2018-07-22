@@ -26,23 +26,68 @@
     
     <c:choose>
 		<c:when test="${empty sessionScope.session_user }">
-				<h1>PCMember Delete Page</h1>	
+				<h1>PC Member Delete Page</h1>	
 		</c:when>
 		<c:otherwise>
 
 		
-		<form action="<c:url value='/pcmemdelete'/>" method="post">
+		
+		
+		<form action="<c:url value='/deletepcmem'/>" method="post">
+		<label>Enter the email of the row to be delete</label>
+		<br>
 		<label>Email: </label>
-		<input type="text" name="email0" value=""/>
+		<input type="text" name="emailn" value=""/>
 		<br>
 		<br>
-		<input type="submit" name="delete" value="Delete"/>
+		<input type="submit" name="Update" value="Update"/>
 		</form>
 		
-		<br>
+			<center>
+
+
+		<%@ page import="java.sql.*" %>		
+		<p>Update, delete, add PC members: </p>
+
+<table border="2">
+<tr>
+<td>Email</td>
+<td>Name</td>
+</tr>
+<%
+		try {
+		    String url = "jdbc:mysql://localhost:3306/sampledb";
+		    Connection conn = DriverManager.getConnection(url,"root","parth55");
+		    Statement stmt = conn.createStatement();
+		    ResultSet rs; 
+		    rs = stmt.executeQuery("SELECT * FROM pcmember"); 
+		    
+		
+		    while ( rs.next() )
+		    { %>
+			<form action="/updatepcmem" method="post">
+			<tr><td><input type="text" name="email" readonly="readonly" value="<%=rs.getString("email") %>"></td>
+			<td><input type="text" name="name" readonly="readonly" value="<%=rs.getString("name") %>"></td>
+			</tr>
+			</form>
+			 <%
+			}
+
+			rs.close();
+			stmt.close();
+			conn.close();
+			}
+			catch(Exception e)
+			{
+			e.printStackTrace();
+			}
+			%>
+
+				</table>
+				<br>
 		<a href ="/CSC4710Demo/jsps/body.jsp"><button type = "submit">Return to home</button></a>
 		<br>
-		
+			</center>			
 		</c:otherwise>
 	</c:choose>
   </body>
