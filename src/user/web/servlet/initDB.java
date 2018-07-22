@@ -63,6 +63,7 @@ public class initDB extends HttpServlet {
 		      statement.executeUpdate("DROP TABLE IF EXISTS writeT");
 		      statement.executeUpdate("DROP TABLE IF EXISTS author");
 		      statement.executeUpdate("DROP TABLE IF EXISTS paper");
+		      statement.executeUpdate("Drop view if exists AcceptedPaper");
 		      
 		     
 		      
@@ -82,7 +83,7 @@ public class initDB extends HttpServlet {
 		      "primary key(email))";
 		      statement.executeUpdate(sqlstmt1);
 		      
-		     String sqlstmt2 = "CREATE table writeT(paperid integer,email varchar(50),ordercont integer,Primary key(paperid, email),foreign key (paperid) references paper(paperid),foreign key (email) references author(email))";
+		     String sqlstmt2 = "CREATE table writeT(id integer  AUTO_INCREMENT,paperid integer,email varchar(50),ordercont integer,Primary key(id),foreign key (paperid) references paper(paperid),foreign key (email) references author(email))";
 		     statement.executeUpdate(sqlstmt2);
 		      
 		     String sqlstmt3 = "CREATE table pcmember(email VARCHAR(50),name VARCHAR(20),primary key (email))";
@@ -91,7 +92,7 @@ public class initDB extends HttpServlet {
 		     //String sqlstmt4 ="CREATE table pcmember(email VARCHAR(50),name VARCHAR(20),primary key (email))";
 		     //statement.executeUpdate(sqlstmt4);
 		      
-		     String sqlstmt5 ="create table review(reportid integer AUTO_INCREMENT,sdate DATE,comment VARCHAR(250),recommendation CHAR(1),paperid integer,email VARCHAR(100),unique(paperid, email),foreign key (paperid) references paper(paperid),foreign key (email) references pcmember(email),primary key(reportid))";
+		     String sqlstmt5 ="create table review(reportid integer AUTO_INCREMENT,sdate DATE,comment VARCHAR(250),recommendation CHAR(1),paperid integer,email VARCHAR(100),foreign key (paperid) references paper(paperid),foreign key (email) references pcmember(email),primary key(reportid))";
 		     statement.executeUpdate(sqlstmt5);
 		      //paper
 		     preparedStatement = connect.prepareStatement("insert into  paper(title, abstract,pdf) values (?, ?, ?)");
@@ -152,7 +153,7 @@ public class initDB extends HttpServlet {
 		     preparedStatement.executeUpdate();
 		     preparedStatement = connect.prepareStatement("insert into  author(email, name,affiliation) values (?, ?, ?)");
 		     preparedStatement.setString(1, "email2");
-		     preparedStatement.setString(2, "name2");
+		     preparedStatement.setString(2, "Matt");
 		     preparedStatement.setString(3, "affiliation2");
 		     preparedStatement.executeUpdate();
 		     preparedStatement = connect.prepareStatement("insert into  author(email, name,affiliation) values (?, ?, ?)");
@@ -166,18 +167,18 @@ public class initDB extends HttpServlet {
 		     preparedStatement.setString(3, "affiliation4");
 		     preparedStatement.executeUpdate();
 		     preparedStatement = connect.prepareStatement("insert into  author(email, name,affiliation) values (?, ?, ?)");
-		     preparedStatement.setString(1, "email5");
-		     preparedStatement.setString(2, "name5");
+		     preparedStatement.setString(1, "emailZhang");
+		     preparedStatement.setString(2, "Zhang");
 		     preparedStatement.setString(3, "affiliation5");
 		     preparedStatement.executeUpdate();
 		     preparedStatement = connect.prepareStatement("insert into  author(email, name,affiliation) values (?, ?, ?)");
-		     preparedStatement.setString(1, "email6");
-		     preparedStatement.setString(2, "name6");
+		     preparedStatement.setString(1, "emailLu");
+		     preparedStatement.setString(2, "Lu");
 		     preparedStatement.setString(3, "affiliation6");
 		     preparedStatement.executeUpdate();
 		     preparedStatement = connect.prepareStatement("insert into  author(email, name,affiliation) values (?, ?, ?)");
 		     preparedStatement.setString(1, "email7");
-		     preparedStatement.setString(2, "name7");
+		     preparedStatement.setString(2, "John");
 		     preparedStatement.setString(3, "affiliation7");
 		     preparedStatement.executeUpdate();
 		     preparedStatement = connect.prepareStatement("insert into  author(email, name,affiliation) values (?, ?, ?)");
@@ -194,23 +195,33 @@ public class initDB extends HttpServlet {
 		     
 		     preparedStatement = connect.prepareStatement("insert into  writeT(paperid, email,ordercont) values (?, ?, ?)");
 		     preparedStatement.setString(1, "1");
-		     preparedStatement.setString(2, "email1");
-		     preparedStatement.setString(3, "2121");
+		     preparedStatement.setString(2, "emailLu");
+		     preparedStatement.setString(3, "1");
 		     preparedStatement.executeUpdate();
 		     preparedStatement = connect.prepareStatement("insert into  writeT(paperid, email,ordercont) values (?, ?, ?)");
 		     preparedStatement.setString(1, "2");
-		     preparedStatement.setString(2, "email2");
-		     preparedStatement.setString(3, "2121");
+		     preparedStatement.setString(2, "emailZhang");
+		     preparedStatement.setString(3, "2");
 		     preparedStatement.executeUpdate();
 		     preparedStatement = connect.prepareStatement("insert into  writeT(paperid, email,ordercont) values (?, ?, ?)");
 		     preparedStatement.setString(1, "3");
 		     preparedStatement.setString(2, "email3");
-		     preparedStatement.setString(3, "2121");
+		     preparedStatement.setString(3, "1");
 		     preparedStatement.executeUpdate();
 		     preparedStatement = connect.prepareStatement("insert into  writeT(paperid, email,ordercont) values (?, ?, ?)");
-		     preparedStatement.setString(1, "4");
+		     preparedStatement.setString(1, "2");
 		     preparedStatement.setString(2, "email4");
-		     preparedStatement.setString(3, "2121");
+		     preparedStatement.setString(3, "1");
+		     preparedStatement.executeUpdate();
+		     preparedStatement = connect.prepareStatement("insert into  writeT(paperid, email,ordercont) values (?, ?, ?)");
+		     preparedStatement.setString(1, "8");
+		     preparedStatement.setString(2, "emailZhang");
+		     preparedStatement.setString(3, "1");
+		     preparedStatement.executeUpdate();
+		     preparedStatement = connect.prepareStatement("insert into  writeT(paperid, email,ordercont) values (?, ?, ?)");
+		     preparedStatement.setString(1, "8");
+		     preparedStatement.setString(2, "emailLu");
+		     preparedStatement.setString(3, "2");
 		     preparedStatement.executeUpdate();
 		     
 		     //
@@ -222,7 +233,7 @@ public class initDB extends HttpServlet {
 		     preparedStatement.executeUpdate();
 		     preparedStatement = connect.prepareStatement("insert into  pcmember(email, name) values (?, ?)");
 		     preparedStatement.setString(1, "email2");
-		     preparedStatement.setString(2, "pcmember2");
+		     preparedStatement.setString(2, "Matt");
 		     preparedStatement.executeUpdate();
 		     preparedStatement = connect.prepareStatement("insert into  pcmember(email, name) values (?, ?)");
 		     preparedStatement.setString(1, "email3");
@@ -242,7 +253,7 @@ public class initDB extends HttpServlet {
 		     preparedStatement.executeUpdate();
 		     preparedStatement = connect.prepareStatement("insert into  pcmember(email, name) values (?, ?)");
 		     preparedStatement.setString(1, "email7");
-		     preparedStatement.setString(2, "pcmember7");
+		     preparedStatement.setString(2, "John");
 		     preparedStatement.executeUpdate();
 		     preparedStatement = connect.prepareStatement("insert into  pcmember(email, name) values (?, ?)");
 		     preparedStatement.setString(1, "email8");
@@ -253,9 +264,9 @@ public class initDB extends HttpServlet {
 		     preparedStatement = connect.prepareStatement("insert into  review( sdate,comment,recommendation,paperid,email) values (?,?,?, ?, ?)");
 		     preparedStatement.setString(1, "2018-04-06");
 		     preparedStatement.setString(2, "test comment");
-		     preparedStatement.setString(3, "Y");
+		     preparedStatement.setString(3, "N");
 		     preparedStatement.setString(4, "1");
-		     preparedStatement.setString(5, "email1");
+		     preparedStatement.setString(5, "email2");
 		     preparedStatement.executeUpdate();
 		     
 		     preparedStatement = connect.prepareStatement("insert into  review( sdate,comment,recommendation,paperid,email) values (?,?,?, ?, ?)");
@@ -263,22 +274,41 @@ public class initDB extends HttpServlet {
 		     preparedStatement.setString(2, "test comment");
 		     preparedStatement.setString(3, "N");
 		     preparedStatement.setString(4, "1");
-		     preparedStatement.setString(5, "email2");
+		     preparedStatement.setString(5, "email7");
 		     preparedStatement.executeUpdate();
 		     preparedStatement = connect.prepareStatement("insert into  review( sdate,comment,recommendation,paperid,email) values (?,?,?, ?, ?)");
 		     preparedStatement.setString(1, "2018-07-06");
 		     preparedStatement.setString(2, "test comment");
 		     preparedStatement.setString(3, "Y");
 		     preparedStatement.setString(4, "1");
-		     preparedStatement.setString(5, "email3");
+		     preparedStatement.setString(5, "email4");
 		     preparedStatement.executeUpdate();preparedStatement = connect.prepareStatement("insert into  review( sdate,comment,recommendation,paperid,email) values (?,?,?, ?, ?)");
 		     preparedStatement.setString(1, "2018-08-06");
 		     preparedStatement.setString(2, "test comment");
 		     preparedStatement.setString(3, "N");
 		     preparedStatement.setString(4, "2");
-		     preparedStatement.setString(5, "email4");
+		     preparedStatement.setString(5, "email7");
+		     preparedStatement.executeUpdate();
+		     preparedStatement.executeUpdate();preparedStatement = connect.prepareStatement("insert into  review( sdate,comment,recommendation,paperid,email) values (?,?,?, ?, ?)");
+		     preparedStatement.setString(1, "2018-01-06");
+		     preparedStatement.setString(2, "test comment");
+		     preparedStatement.setString(3, "Y");
+		     preparedStatement.setString(4, "6");
+		     preparedStatement.setString(5, "email7");
+		     preparedStatement.executeUpdate();
+		     preparedStatement.executeUpdate();preparedStatement = connect.prepareStatement("insert into  review( sdate,comment,recommendation,paperid,email) values (?,?,?, ?, ?)");
+		     preparedStatement.setString(1, "2018-02-06");
+		     preparedStatement.setString(2, "test comment");
+		     preparedStatement.setString(3, "Y");
+		     preparedStatement.setString(4, "8");
+		     preparedStatement.setString(5, "email6");
 		     preparedStatement.executeUpdate();
 		     
+		     
+		     preparedStatement = connect.prepareStatement("create view AcceptedPaper As  select p.paperid,p.title,count(*) from paper p inner join review r on r.paperid = p.paperid  inner join pcmember pc on r.email = pc.email where recommendation = 'Y'group by paperid having count(*) >= 2");
+		     preparedStatement.executeUpdate();
+		     
+		    // preaparedStatememt = connect.prepareStatement("")
 		     
 		      
 		      
