@@ -2,6 +2,7 @@
 
 
 Final Project: Conference Management Software System
+
 Team: Parth Desai & Mahfuj Rahman
 
 The URL to our Github is: xxxxxxxxxxxxxxxxxxxxxxxxx. Parth’s Github id is parthdesai96 and mahfuj's Github id is mahfujrahman. We both contributed our effort toward this project. For instance, Parth created the insert, delete and update files for paper and pc members along with the other files. Mahfuj worked on creating the insert, delete and update file for review reports along with the ER Diagram. We followed the requirements/rubric for Front End & Back End as we were implementing elements throughout the final project.
