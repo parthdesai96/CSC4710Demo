@@ -23,11 +23,13 @@
 		}
 		body{
 			text-align:center;
+			background: rgb(2,0,36);
+			background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,0,255,1) 19%, rgba(255,255,255,1) 100%);	
+			
 		}
 		.table{
 			width:1024px;
 			height:100%;
-			border:1px solid gray;
 		    border-collapse: collapse;
 		}
 		.table td{

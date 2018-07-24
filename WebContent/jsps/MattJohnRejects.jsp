@@ -19,6 +19,7 @@
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
   </head>
   
@@ -26,7 +27,7 @@
     
     <c:choose>
 		<c:when test="${empty sessionScope.session_user }">
-				<h1>Lu First Author Page</h1>	
+				<h1>Matt and John rejects Page</h1>	
 		</c:when>
 		<c:otherwise>
 		
@@ -36,7 +37,7 @@
 		<%@ page import="java.sql.*" %>		
 		<p>Matt and John Rejects Page: </p>
 
-<table border="2">
+<table class = "w3-table w3-blue" border = "2">
 <tr>
 <td>Paper ID</td>
 <td>Title</td>

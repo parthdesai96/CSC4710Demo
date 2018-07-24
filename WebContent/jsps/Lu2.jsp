@@ -38,9 +38,9 @@
 
 
 		<%@ page import="java.sql.*" %>		
-		<p>Update Papers: </p>
+		<p>Lu2 Papers: </p>
 
-<table class = "w3-table w3-striped w3-white" >
+<table class = "w3-table w3-blue" border = "2">
 <tr>
 <td>Paper ID</td>
 <td>Title</td>

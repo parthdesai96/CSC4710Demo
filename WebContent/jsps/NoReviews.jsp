@@ -19,6 +19,7 @@
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
   </head>
   
@@ -36,7 +37,7 @@
 		<%@ page import="java.sql.*" %>		
 		<p>Most Reviews Page: </p>
 
-<table border="2">
+<table class = "w3-table w3-blue" border = "2">
 <tr>
 <td>Name</td>
 <td>Email</td>
