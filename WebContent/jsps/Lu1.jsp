@@ -19,6 +19,8 @@
 	<!--
 	<link rel="stylesheet" type="text/css" href="styles.css">
 	-->
+	
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
   </head>
   
@@ -34,9 +36,9 @@
 
 
 		<%@ page import="java.sql.*" %>		
-		<p>Update Papers: </p>
+		<p>Lu Papers: </p>
 
-<table border="2">
+<table class = "w3-table w3-blue" border = "2">
 <tr>
 <td>Paper ID</td>
 <td>Title</td>

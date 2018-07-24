@@ -18,7 +18,7 @@
 	-->
 <style type="text/css">
 	body {
-		background: #666666; 
+		background:#ffffff; 
 	}
 	a {
 		text-transform:none;
